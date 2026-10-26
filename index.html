@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#130b0d">
 
-<title>Atascosa County Troupe | ACT Theatre</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ACT Theatre | Atascosa County Troupe</title>
 
 <meta name="description"
-content="Atascosa County Troupe, a nonprofit community theatre in Pleasanton, Texas since 1974. Discover live productions, auditions, youth theatre, and special events.">
+content="Atascosa County Troupe, a nonprofit community theatre serving Pleasanton, Texas since 1974. Explore productions, auditions, youth theatre, events, and ACT history.">
+
+<meta name="theme-color" content="#10090b">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +20,22 @@ content="Atascosa County Troupe, a nonprofit community theatre in Pleasanton, Te
 
 <style>
 
-/* ===============================
-   ACT THEATRE DESIGN
-================================ */
+/* ==========================================
+   ACT THEATRE
+   BLACK / BLOOD CRIMSON / ANTIQUE GOLD
+========================================== */
 
 :root {
-  --black: #130b0d;
-  --black-soft: #1d1115;
-  --panel: #27181c;
-  --crimson: #800d18;
-  --crimson-light: #a82030;
-  --gold: #c9a66d;
-  --ivory: #f3e8d7;
-  --muted: #c9b8a8;
-  --border: #705044;
-  --max-width: 1180px;
+  --black: #10090b;
+  --dark: #1b1014;
+  --panel: #28191e;
+  --red: #800d18;
+  --red-light: #aa2331;
+  --gold: #c8a66e;
+  --ivory: #f3e9da;
+  --muted: #c8b8aa;
+  --line: #745341;
+  --max: 1180px;
 }
 
 * {
@@ -40,6 +44,7 @@ content="Atascosa County Troupe, a nonprofit community theatre in Pleasanton, Te
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -47,16 +52,16 @@ body {
   background: var(--black);
   color: var(--ivory);
   font-family: "Libre Baskerville", Georgia, serif;
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.85;
 }
 
-a {
-  color: var(--gold);
-}
-
-a:hover {
-  color: var(--ivory);
+body,
+input,
+textarea,
+select,
+button {
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -64,30 +69,58 @@ img {
   max-width: 100%;
 }
 
-h1, h2, h3, h4 {
+a {
+  color: var(--gold);
+}
+
+a:hover {
+  color: white;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: "Cormorant Garamond", Georgia, serif;
-  line-height: 1.1;
   font-weight: 600;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-size: clamp(3.4rem, 8vw, 7rem);
 }
 
 h2 {
-  font-size: clamp(2.7rem, 6vw, 4.5rem);
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
 }
 
 h3 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
 }
 
 p {
-  margin-top: 0;
+  margin: 0 0 19px;
 }
 
 .container {
-  width: min(92%, var(--max-width));
+  width: min(92%, var(--max));
   margin: auto;
 }
 
@@ -95,20 +128,12 @@ p {
   padding: 85px 0;
 }
 
-.section-small {
-  padding: 45px 0;
+.section-dark {
+  background: #1b1014;
 }
 
 .center {
   text-align: center;
-}
-
-.eyebrow {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 11px;
-  font-weight: bold;
 }
 
 .gold {
@@ -119,10 +144,18 @@ p {
   color: var(--muted);
 }
 
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
 .divider {
-  width: 240px;
-  max-width: 80%;
   height: 1px;
+  width: 230px;
+  max-width: 80%;
   background: var(--gold);
   margin: 30px auto;
   opacity: .65;
@@ -130,56 +163,44 @@ p {
 
 .btn {
   display: inline-block;
-  padding: 13px 23px;
   border: 1px solid var(--gold);
   background: transparent;
   color: var(--ivory);
+  padding: 13px 23px;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
-  transition: .2s ease;
+  transition: background .2s, color .2s;
 }
 
-.btn:hover,
-.btn:focus-visible {
+.btn:hover {
   background: var(--gold);
   color: var(--black);
 }
 
 .btn-red {
-  background: var(--crimson);
-  border-color: var(--crimson-light);
+  background: var(--red);
+  border-color: var(--red-light);
 }
 
-.btn-red:hover,
-.btn-red:focus-visible {
-  background: var(--crimson-light);
+.btn-red:hover {
+  background: var(--red-light);
   color: white;
 }
 
 .button-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 13px;
   margin-top: 25px;
 }
 
 .button-row.center {
   justify-content: center;
-}
-
-.panel {
-  background: linear-gradient(
-    135deg,
-    #2b1a1e,
-    #1b1013
-  );
-  border: 1px solid #8c6a4c66;
-  padding: clamp(24px, 4vw, 43px);
 }
 
 .split {
@@ -190,27 +211,49 @@ p {
 }
 
 .poster-split {
-  grid-template-columns: minmax(270px, .85fr) 1.15fr;
+  grid-template-columns: minmax(260px, .85fr) 1.15fr;
+}
+
+.panel {
+  background: linear-gradient(135deg, #2b1a1e, #190f12);
+  border: 1px solid #a37b5066;
+  padding: clamp(25px, 4vw, 45px);
 }
 
 .poster {
-  background: #10090b;
+  border: 1px solid var(--line);
+  background: #0c0809;
   padding: 10px;
-  border: 1px solid var(--border);
   box-shadow: 0 20px 55px #0008;
 }
 
 .poster img {
   width: 100%;
   height: auto;
-  object-fit: contain;
 }
 
-.poster-caption {
+.section-heading {
   text-align: center;
-  color: var(--muted);
-  font-size: 11px;
-  margin-top: 12px;
+  max-width: 850px;
+  margin: 0 auto 45px;
+}
+
+.quote {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 29px;
+  font-style: italic;
+  line-height: 1.35;
+  padding-left: 25px;
+  border-left: 2px solid var(--gold);
+  margin: 30px 0;
+}
+
+.note {
+  background: #ffffff08;
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  margin: 25px 0;
 }
 
 .cards {
@@ -220,20 +263,20 @@ p {
 }
 
 .card {
-  padding: 28px;
-  background: var(--panel);
-  border: 1px solid #8c6a4c66;
   display: flex;
   flex-direction: column;
+  background: var(--panel);
+  border: 1px solid #a37b5066;
+  padding: 28px;
 }
 
 .card h3 {
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .card p {
   color: var(--muted);
-  flex-grow: 1;
+  flex: 1;
 }
 
 .card .btn {
@@ -250,80 +293,57 @@ p {
 }
 
 .inner-hero {
-  padding: 90px 20px 65px;
+  padding: 95px 20px 70px;
   text-align: center;
-  background: radial-gradient(
-    ellipse at center,
-    #48141c,
-    #170d10 75%
-  );
-  border-bottom: 1px solid #8c6a4c66;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #48131c,
+      #160c10 78%
+    );
+  border-bottom: 1px solid #a37b5066;
 }
 
 .inner-hero h1 {
-  margin: 12px 0;
-  font-size: clamp(3.2rem, 8vw, 6rem);
+  font-size: clamp(3.3rem, 7vw, 6rem);
+  margin: 14px 0;
 }
 
 .inner-hero p {
-  max-width: 720px;
+  max-width: 740px;
   margin: auto;
   color: var(--muted);
 }
 
-.section-heading {
-  max-width: 850px;
-  margin: 0 auto 45px;
-  text-align: center;
-}
-
-.notice {
-  padding: 18px 23px;
-  background: #ffffff08;
-  border-left: 3px solid var(--gold);
-  color: var(--muted);
-}
-
-.quote {
-  color: var(--gold);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: 28px;
-  line-height: 1.4;
-  border-left: 2px solid var(--gold);
-  padding-left: 25px;
-  margin: 30px 0;
-}
-
-/* ===============================
-   HEADER AND NAVIGATION
-================================ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #110a0cf2;
-  border-bottom: 1px solid #a3815566;
+  background: #10090bf2;
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid #a37b5066;
 }
 
 .header-inner {
-  max-width: 1400px;
+  max-width: 1450px;
   margin: auto;
   padding: 12px 22px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 13px;
-  color: var(--ivory);
+  gap: 12px;
   text-decoration: none;
+  color: var(--ivory);
   min-width: 0;
 }
 
@@ -331,7 +351,7 @@ p {
   width: 55px;
   height: 55px;
   object-fit: contain;
-  background: #eee6d9;
+  background: #f0e7d9;
   border-radius: 50%;
   padding: 3px;
 }
@@ -341,30 +361,30 @@ p {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 25px;
   line-height: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .brand-sub {
   display: block;
   font-size: 9px;
-  letter-spacing: 1.2px;
   color: var(--gold);
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 .nav a {
   color: var(--ivory);
+  font-size: 10px;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: .6px;
-  font-size: 10px;
+  letter-spacing: .5px;
   font-weight: bold;
   white-space: nowrap;
 }
@@ -375,24 +395,24 @@ p {
 }
 
 .nav .btn {
-  padding: 12px 14px;
+  padding: 12px 15px;
 }
 
 .menu-toggle {
   display: none;
-  border: 1px solid var(--gold);
-  background: transparent;
   color: var(--ivory);
+  background: transparent;
+  border: 1px solid var(--gold);
   padding: 10px 13px;
   cursor: pointer;
 }
 
-/* ===============================
-   HOME HERO
-================================ */
+/* ==========================================
+   HOMEPAGE
+========================================== */
 
 .hero {
-  min-height: 640px;
+  min-height: 650px;
   display: grid;
   place-items: center;
   text-align: center;
@@ -401,8 +421,8 @@ p {
     radial-gradient(
       ellipse at center,
       #54151f 0%,
-      #270e14 45%,
-      #110a0c 85%
+      #260e14 48%,
+      #10090b 85%
     );
   position: relative;
   overflow: hidden;
@@ -412,20 +432,19 @@ p {
 .hero::after {
   content: "✦";
   position: absolute;
-  font-family: Georgia, serif;
-  font-size: 220px;
-  color: #c9a66d19;
+  color: #c8a66e16;
+  font-size: 200px;
   pointer-events: none;
 }
 
 .hero::before {
-  left: -40px;
+  left: -45px;
   top: -100px;
 }
 
 .hero::after {
-  right: -40px;
-  bottom: -120px;
+  right: -45px;
+  bottom: -130px;
 }
 
 .hero-content {
@@ -434,14 +453,14 @@ p {
 }
 
 .hero h1 {
-  margin: 20px 0 5px;
+  margin: 18px 0 0;
 }
 
 .hero-subtitle {
+  color: var(--gold);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(28px, 4vw, 43px);
   font-style: italic;
-  color: var(--gold);
 }
 
 .hero-description {
@@ -449,37 +468,125 @@ p {
   margin: 25px auto;
 }
 
-/* ===============================
+/* ==========================================
+   POE: THE HIDDEN FACE
+========================================== */
+
+.poe-feature {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 75% 50%,
+      #42121a,
+      #140b0e 75%
+    );
+}
+
+/*
+  Upload a file named poe-portrait.jpg
+  to the same folder as index.html.
+
+  The portrait should be a close-up of
+  Edgar Allan Poe with a dark background.
+*/
+
+.poe-feature::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: -3%;
+  width: 65%;
+  height: 100%;
+
+  background-image:
+    url("poe-portrait.jpg");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  opacity: .095;
+  filter:
+    grayscale(100%)
+    contrast(145%)
+    brightness(65%);
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 40%,
+      black 70%,
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+.poe-feature::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #10090b55,
+      transparent 45%,
+      #10090b44
+    );
+  pointer-events: none;
+}
+
+/* ==========================================
+   MASQUERADE
+========================================== */
+
+.masque-feature {
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      #5b1420,
+      #1b0d12 65%,
+      #10090b
+    );
+  border-top: 1px solid #a37b5066;
+  border-bottom: 1px solid #a37b5066;
+}
+
+.masque-feature .poster {
+  box-shadow:
+    0 0 60px #800d1838,
+    0 20px 55px #0008;
+}
+
+/* ==========================================
    EVENTS
-================================ */
+========================================== */
 
 .event {
   padding: 55px 0;
-  border-bottom: 1px solid #8c6a4c66;
+  border-bottom: 1px solid #a37b5066;
 }
 
 .event:last-child {
-  border-bottom: none;
-}
-
-.event-label {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 11px;
+  border-bottom: 0;
 }
 
 .schedule {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin: 25px 0;
 }
 
 .schedule-item {
-  padding: 12px 16px;
   background: #ffffff08;
   border-left: 2px solid var(--gold);
+  padding: 14px 17px;
 }
 
 .schedule-item strong {
@@ -499,30 +606,142 @@ p {
 }
 
 .calendar-item {
-  padding: 28px;
-  border: 1px solid #8c6a4c66;
+  border: 1px solid #a37b5066;
   background: #ffffff06;
+  padding: 28px;
 }
 
 .calendar-item .date {
   color: var(--gold);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
   text-transform: uppercase;
-}
-
-.calendar-item h3 {
-  margin: 12px 0;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 .calendar-item p {
   color: var(--muted);
 }
 
-/* ===============================
+/* ==========================================
+   FORMS
+========================================== */
+
+.form-section {
+  max-width: 790px;
+  margin: auto;
+}
+
+.form-card {
+  background: linear-gradient(
+    135deg,
+    #29191e,
+    #170e11
+  );
+  border: 1px solid var(--line);
+  padding: clamp(24px, 5vw, 45px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  background: #10090b;
+  color: var(--ivory);
+  border: 1px solid #84664e;
+  border-radius: 0;
+  padding: 13px 14px;
+  font-size: 13px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #b4a79c;
+}
+
+.form-field textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+.form-field input[type="file"] {
+  padding: 12px;
+}
+
+.form-field input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  accent-color: var(--red);
+}
+
+.checkline {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.checkline input {
+  margin-top: 7px;
+}
+
+.checkline label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.form-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+.form-success {
+  color: #d8e7c6;
+  border: 1px solid #7b996e;
+  background: #253321;
+  padding: 17px;
+  margin-top: 18px;
+}
+
+.form-error {
+  color: #ffd7d7;
+  border: 1px solid #b44b4b;
+  background: #421b1b;
+  padding: 17px;
+  margin-top: 18px;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-card button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+/* ==========================================
    GALLERY
-================================ */
+========================================== */
 
 .gallery {
   display: grid;
@@ -532,32 +751,32 @@ p {
 
 .gallery figure {
   margin: 0;
-  padding: 12px;
   background: var(--panel);
-  border: 1px solid var(--border);
+  border: 1px solid var(--line);
+  padding: 12px;
 }
 
 .gallery img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: contain;
-  background: #130b0d;
+  background: #10090b;
 }
 
 .gallery figcaption {
   text-align: center;
-  color: var(--muted);
-  padding: 14px 5px 5px;
+  padding: 13px 5px 5px;
   font-size: 12px;
+  color: var(--muted);
 }
 
-/* ===============================
+/* ==========================================
    FOOTER
-================================ */
+========================================== */
 
 .footer {
-  background: #0c0809;
-  border-top: 1px solid #8c6a4c66;
+  background: #0b0708;
+  border-top: 1px solid #a37b5066;
   padding: 60px 0 25px;
 }
 
@@ -567,14 +786,10 @@ p {
   gap: 40px;
 }
 
-.footer-grid h3 {
-  margin-top: 0;
-}
-
 .footer-grid p,
 .footer-grid a {
-  font-size: 12px;
   color: var(--muted);
+  font-size: 12px;
 }
 
 .footer-links {
@@ -583,22 +798,18 @@ p {
   gap: 8px;
 }
 
-.footer-links a:hover {
-  color: var(--gold);
-}
-
 .copyright {
-  margin-top: 40px;
+  border-top: 1px solid #a37b5044;
   padding-top: 22px;
-  border-top: 1px solid #8c6a4c44;
-  text-align: center;
-  font-size: 11px;
+  margin-top: 40px;
   color: var(--muted);
+  font-size: 11px;
+  text-align: center;
 }
 
-/* ===============================
-   MOBILE
-================================ */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
 @media (max-width: 1160px) {
   .nav {
@@ -611,6 +822,7 @@ p {
 }
 
 @media (max-width: 980px) {
+
   .menu-toggle {
     display: block;
   }
@@ -621,12 +833,14 @@ p {
     top: 100%;
     left: 0;
     right: 0;
-    padding: 20px;
     background: #180e11;
     border-bottom: 1px solid var(--gold);
+    padding: 20px;
     flex-direction: column;
     align-items: stretch;
-    box-shadow: 0 20px 30px #0009;
+    box-shadow: 0 20px 35px #0009;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
   }
 
   .nav.open {
@@ -634,13 +848,9 @@ p {
   }
 
   .nav a {
-    padding: 12px;
+    padding: 11px;
     border-bottom: 1px solid #ffffff15;
     font-size: 12px;
-  }
-
-  .nav .btn {
-    margin-top: 12px;
   }
 
   .split,
@@ -656,9 +866,11 @@ p {
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 
 @media (max-width: 650px) {
+
   .section {
     padding: 60px 0;
   }
@@ -673,8 +885,8 @@ p {
   }
 
   .brand img {
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
   }
 
   .brand-name {
@@ -687,9 +899,10 @@ p {
 
   .cards,
   .calendar,
+  .schedule,
   .gallery,
   .footer-grid,
-  .schedule {
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -697,20 +910,36 @@ p {
     width: 100%;
   }
 
+  .poe-feature::before {
+    width: 100%;
+    right: -20%;
+    opacity: .065;
+  }
+
   .card,
   .calendar-item {
     padding: 23px;
   }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- ===============================
+<!-- ==========================================
      HEADER
-================================ -->
+========================================== -->
 
 <header class="site-header">
 
@@ -718,13 +947,19 @@ p {
 
     <a class="brand" href="#home">
 
-      <img src="act-logo.jpg" alt="ACT Theatre logo">
+      <img src="act-logo.jpg"
+           alt="Atascosa County Troupe logo">
 
       <span>
-        <span class="brand-name">A.C.T. THEATRE</span>
+
+        <span class="brand-name">
+          A.C.T. THEATRE
+        </span>
+
         <span class="brand-sub">
           Atascosa County Troupe · Est. 1974
         </span>
+
       </span>
 
     </a>
@@ -732,21 +967,27 @@ p {
     <button
       class="menu-toggle"
       id="menuToggle"
-      aria-label="Open navigation"
-      aria-expanded="false"
-      aria-controls="mainNav">
+      aria-controls="mainNav"
+      aria-expanded="false">
       ☰ Menu
     </button>
 
     <nav class="nav" id="mainNav">
 
       <a href="#home">Home</a>
+
       <a href="#shows">Shows & Events</a>
+
       <a href="#behind">Behind the Curtain</a>
+
       <a href="#youth">Youth Theatre</a>
+
       <a href="#history">History of ACT</a>
+
       <a href="#gallery">Gallery</a>
+
       <a href="#involved">Get Involved</a>
+
       <a href="#about">About ACT</a>
 
       <a class="btn btn-red" href="#shows">
@@ -759,11 +1000,11 @@ p {
 
 </header>
 
-<main id="main">
+<main>
 
-<!-- ===============================
+<!-- ==========================================
      HOME
-================================ -->
+========================================== -->
 
 <section class="page active" id="home">
 
@@ -775,7 +1016,10 @@ p {
         Atascosa County Troupe · Since 1974
       </div>
 
-      <h1>THEATRE<br>LIVES HERE.</h1>
+      <h1>
+        THEATRE<br>
+        LIVES HERE.
+      </h1>
 
       <div class="hero-subtitle">
         And there is a place for you here.
@@ -784,11 +1028,11 @@ p {
       <div class="divider"></div>
 
       <p class="hero-description">
-        For more than fifty years, stories have come alive
-        on our stage. From unforgettable performances to
-        the friendships formed behind the curtain,
-        ACT Theatre is where imagination, creativity,
-        and community meet.
+        For more than fifty years, stories have
+        come alive on our stage. From unforgettable
+        performances to friendships formed
+        behind the curtain, ACT Theatre is where
+        imagination, creativity, and community meet.
       </p>
 
       <div class="button-row center">
@@ -807,7 +1051,9 @@ p {
 
   </div>
 
-  <div class="section">
+  <!-- POE HOMEPAGE FEATURE -->
+
+  <div class="section poe-feature">
 
     <div class="container split poster-split">
 
@@ -815,18 +1061,14 @@ p {
 
         <img
           src="poe-dreams-of-madness.jpg"
-          alt="Poe Dreams of Madness by Allyssa Hynes">
-
-        <p class="poster-caption">
-          Fall 2026 · November 14–22
-        </p>
+          alt="Official Poe Dreams of Madness production poster">
 
       </div>
 
       <div>
 
         <div class="eyebrow">
-          On the Stage · Fall 2026
+          On the Stage · November 14–22, 2026
         </div>
 
         <h2>Poe: Dreams of Madness</h2>
@@ -842,10 +1084,11 @@ p {
         </p>
 
         <p>
-          A Raven has come to guide him through the
-          darkest corners of his imagination, where
-          the stories he once committed to paper
-          have begun to take on lives of their own.
+          A Raven has come to guide him through
+          the darkest corners of his imagination,
+          where the stories he once committed
+          to paper have begun to take on lives
+          of their own.
         </p>
 
         <p>
@@ -882,22 +1125,103 @@ p {
 
   </div>
 
-  <div class="section" style="background:#1c1115">
+  <!-- MASQUERADE HOMEPAGE FEATURE -->
+
+  <div class="section masque-feature">
+
+    <div class="container split poster-split">
+
+      <div>
+
+        <div class="eyebrow">
+          An ACT Fundraiser · February 13, 2027
+        </div>
+
+        <h2>The Masque of Hidden Hearts</h2>
+
+        <h3 class="gold">
+          A Tragic Love Masquerade Ball
+        </h3>
+
+        <p>
+          Some love stories are written
+          in the stars. Others are
+          whispered behind a mask.
+        </p>
+
+        <p>
+          Enter an evening where romance
+          and mystery intertwine, where
+          elegance conceals secrets,
+          and every guest becomes
+          part of the story.
+        </p>
+
+        <p>
+          Join Atascosa County Troupe
+          for an unforgettable masquerade
+          featuring dinner, dancing,
+          drinks, and a silent auction,
+          all in support of community theatre.
+        </p>
+
+        <p>
+          <strong>
+            Saturday, February 13, 2027
+          </strong>
+          <br>
+          Coughran Hall · Pleasanton, Texas
+          <br>
+          Ages 18+
+        </p>
+
+        <div class="button-row">
+
+          <a class="btn btn-red"
+             href="https://www.zeffy.com/en-US/ticketing/a-masquerade-of-hidden-hearts"
+             target="_blank"
+             rel="noopener noreferrer">
+            Masquerade Tickets
+          </a>
+
+          <a class="btn" href="#shows-masque">
+            Discover the Masquerade
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="poster">
+
+        <img
+          src="masque-of-hidden-hearts.jpg"
+          alt="Official Masque of Hidden Hearts masquerade poster">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- UPCOMING -->
+
+  <div class="section">
 
     <div class="container">
 
       <div class="section-heading">
 
         <div class="eyebrow">
-          There's Always Something Happening
+          The Story Continues
         </div>
 
         <h2>Upcoming at ACT</h2>
 
         <p>
-          From the mainstage to special events,
-          auditions, and youth productions,
-          there's always another story waiting.
+          From productions to auditions
+          and special events, there's always
+          another story waiting.
         </p>
 
       </div>
@@ -906,31 +1230,15 @@ p {
 
         <article class="card">
 
-          <div class="eyebrow">November 14–22, 2026</div>
-
-          <h3>Poe: Dreams of Madness</h3>
-
-          <p>
-            Enter the shadowed imagination of
-            Edgar Allan Poe in a theatrical journey
-            through his most haunting works.
-          </p>
-
-          <a class="btn" href="#shows-poe">
-            Show Details
-          </a>
-
-        </article>
-
-        <article class="card">
-
-          <div class="eyebrow">December 2026</div>
+          <div class="eyebrow">
+            December 2026
+          </div>
 
           <h3>Teen Shakespeare Auditions</h3>
 
           <p>
-            Shakespeare Weekend returns,
-            this time with an Italian Mafia twist.
+            Shakespeare Weekend returns
+            with an Italian Mafia twist.
             Auditions for ages 13–19.
           </p>
 
@@ -942,18 +1250,38 @@ p {
 
         <article class="card">
 
-          <div class="eyebrow">February 13, 2027</div>
+          <div class="eyebrow">
+            January 2027 · TBA
+          </div>
 
-          <h3>Masque of Hidden Hearts</h3>
+          <h3>A.C.T. in Four</h3>
 
           <p>
-            An evening of tragic romance,
-            dinner, dancing, masks, mystery,
-            and old-world elegance.
+            A One-Act Showcase.
+            More details coming soon.
           </p>
 
-          <a class="btn" href="#shows-masque">
-            Enter the Masquerade
+          <a class="btn" href="#shows-upcoming">
+            Learn More
+          </a>
+
+        </article>
+
+        <article class="card">
+
+          <div class="eyebrow">
+            March 2027 · TBA
+          </div>
+
+          <h3>Teen Shakespeare Production</h3>
+
+          <p>
+            A classic theatrical tradition
+            gets an Italian Mafia makeover.
+          </p>
+
+          <a class="btn" href="#teen">
+            Explore Teen Theatre
           </a>
 
         </article>
@@ -964,7 +1292,9 @@ p {
 
   </div>
 
-  <div class="section">
+  <!-- COMMUNITY -->
+
+  <div class="section section-dark">
 
     <div class="container split">
 
@@ -977,21 +1307,22 @@ p {
         <h2>There's a Place for Everyone.</h2>
 
         <p>
-          Theatre isn't only about the people
-          standing beneath the spotlight.
+          Theatre isn't only about
+          the people beneath the spotlight.
         </p>
 
         <p>
-          It's the hands building sets, the volunteers
-          greeting guests, the artists imagining costumes,
-          the young performer finding their voice,
-          and the audience sharing a moment that
-          can never be repeated quite the same way.
+          It's the hands building sets,
+          the volunteers welcoming guests,
+          the artists imagining costumes,
+          and the young performer
+          discovering their voice.
         </p>
 
         <p>
-          Whether you've been involved in theatre
-          for decades or you're simply curious,
+          Whether you've been involved
+          in theatre for decades or
+          you're simply curious,
           there's room for you at ACT.
         </p>
 
@@ -1010,11 +1341,12 @@ p {
         <h3>From the Wings</h3>
 
         <p>
-          Soon, we'll be sharing a monthly note
-          from ACT's leadership, offering a glimpse
-          into our productions, the people who
-          make them possible, and the stories
-          waiting just beyond the curtain.
+          Soon, we'll share a monthly note
+          from ACT's leadership, offering
+          a glimpse into our productions,
+          the people who make them possible,
+          and the stories waiting
+          beyond the curtain.
         </p>
 
         <div class="divider"></div>
@@ -1022,9 +1354,9 @@ p {
         <h3>Stay in the Know</h3>
 
         <p>
-          Our newsletter is in the works!
-          Watch this space for upcoming productions,
-          auditions, special events, and news
+          Our newsletter is coming soon,
+          with production announcements,
+          auditions, events, and news
           from behind the scenes.
         </p>
 
@@ -1040,9 +1372,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      SHOWS & EVENTS
-================================ -->
+========================================== -->
 
 <section class="page" id="shows">
 
@@ -1076,7 +1408,7 @@ p {
 
       </div>
 
-      <!-- POE -->
+      <!-- POE FULL DETAILS -->
 
       <article class="event" id="shows-poe">
 
@@ -1092,7 +1424,7 @@ p {
 
           <div>
 
-            <div class="event-label">
+            <div class="eyebrow">
               Fall Mainstage Production
             </div>
 
@@ -1103,146 +1435,143 @@ p {
             </p>
 
             <p class="muted">
-              Produced by special arrangement with
-              Pioneer Drama Service Inc.,
+              Produced by special arrangement
+              with Pioneer Drama Service Inc.,
               Denver, Colorado.
             </p>
 
             <p>
-              <strong>
-                Six performances. Two weekends.
-                One descent into madness.
-              </strong>
+              It is nearly midnight,
+              and Edgar Allan Poe has
+              a most unsettling companion.
             </p>
 
             <p>
-              What happens when the master of
-              the macabre becomes trapped
-              inside his own imagination?
+              A Raven has come to guide him
+              through the darkest corners
+              of his own imagination,
+              where the stories he once
+              committed to paper have begun
+              to take on lives of their own.
             </p>
 
             <p>
-              It is nearly midnight, and Edgar Allan Poe
-              cannot sleep. Or perhaps he has
-              been sleeping all along.
-            </p>
-
-            <p>
-              Haunted by dreams that follow him into
-              waking life, Poe finds himself wandering
-              through the darkest corners of his
-              literary creations, guided by none
-              other than the Raven himself.
-            </p>
-
-            <p>
+              A tell-tale heart beats
+              where no heart should be.
               The dead refuse to remain buried.
-              A guilty heart beats beneath the floorboards.
               A pendulum swings ever closer.
-              And the line between reality and nightmare
-              grows dangerously thin.
             </p>
 
             <p>
-              In this award-winning theatrical adaptation,
-              the haunting beauty and psychological terror
-              of Poe's classic literature come alive
-              through his most celebrated Gothic works,
-              including <em>The Tell-Tale Heart</em>,
-              <em>The Fall of the House of Usher</em>,
-              <em>The Pit and the Pendulum</em>,
-              <em>The Masque of the Red Death</em>,
-              <em>The Raven</em>, and more.
+              And the boundary between
+              the man who wrote these horrors
+              and the horrors themselves
+              begins to disappear.
             </p>
 
             <p>
-              Both familiar and unexpectedly original,
-              this production weaves obsession, guilt,
-              grief, madness, and mortality into
-              an evening of suspense and
-              unsettling theatre.
+              As Poe wanders deeper into
+              a world of his own creation,
+              one question remains:
             </p>
 
             <p class="quote">
-              Will Poe ever escape the nightmares
-              he created? And once you've entered
-              his world, will you?
+              Can a man escape the nightmares
+              he gave to the world?
+            </p>
+
+            <p>
+              Enter a haunting theatrical
+              journey through the mind
+              and macabre masterpieces
+              of Edgar Allan Poe,
+              where every shadow holds
+              a story, every sound
+              a warning, and madness
+              may be the only way out.
+            </p>
+
+            <p class="gold">
+              SIX PERFORMANCES.
+              TWO WEEKENDS.
+              ONE DESCENT INTO MADNESS.
             </p>
 
           </div>
 
         </div>
 
-        <div class="section-small">
+        <h3 class="center">
+          Performance Dates & Times
+        </h3>
 
-          <h3 class="center">Performance Dates & Times</h3>
+        <div class="schedule">
 
-          <div class="schedule">
-
-            <div class="schedule-item">
-              <strong>Saturday, November 14</strong>
-              <span>7:30 PM · Opening Night</span>
-            </div>
-
-            <div class="schedule-item">
-              <strong>Sunday, November 15</strong>
-              <span>2:00 PM · Matinee</span>
-            </div>
-
-            <div class="schedule-item">
-              <strong>Sunday, November 15</strong>
-              <span>6:00 PM · Evening Performance</span>
-            </div>
-
-            <div class="schedule-item">
-              <strong>Friday, November 20</strong>
-              <span>7:30 PM</span>
-            </div>
-
-            <div class="schedule-item">
-              <strong>Saturday, November 21</strong>
-              <span>7:30 PM</span>
-            </div>
-
-            <div class="schedule-item">
-              <strong>Sunday, November 22</strong>
-              <span>4:00 PM · Closing Performance</span>
-            </div>
-
+          <div class="schedule-item">
+            <strong>Saturday, November 14</strong>
+            <span>7:30 PM · Opening Night</span>
           </div>
 
-          <p class="center gold">
-            Doors open 30 minutes before
-            each performance.
+          <div class="schedule-item">
+            <strong>Sunday, November 15</strong>
+            <span>2:00 PM · Matinee</span>
+          </div>
+
+          <div class="schedule-item">
+            <strong>Sunday, November 15</strong>
+            <span>6:00 PM · Evening</span>
+          </div>
+
+          <div class="schedule-item">
+            <strong>Friday, November 20</strong>
+            <span>7:30 PM</span>
+          </div>
+
+          <div class="schedule-item">
+            <strong>Saturday, November 21</strong>
+            <span>7:30 PM</span>
+          </div>
+
+          <div class="schedule-item">
+            <strong>Sunday, November 22</strong>
+            <span>4:00 PM · Closing</span>
+          </div>
+
+        </div>
+
+        <p class="center gold">
+          Doors open 30 minutes
+          before each performance.
+        </p>
+
+        <div class="note">
+
+          <strong>We're trying something new!</strong>
+
+          <p>
+            Opening weekend features two Sunday
+            performances, a 2 PM matinee
+            and a 6 PM evening showing.
+            Our second weekend concludes
+            with an earlier 4 PM Sunday curtain.
           </p>
 
-          <div class="notice">
-
-            <strong>We're trying something new!</strong>
-
-            Opening weekend features two Sunday
-            performances, a 2 PM matinee and
-            a 6 PM evening showing.
-
-            Our second weekend concludes with
-            an earlier 4 PM Sunday curtain.
-
+          <p>
             We're experimenting with showtimes
             to discover what works best
             for our audiences!
+          </p>
 
-          </div>
+        </div>
 
-          <div class="button-row center">
+        <div class="button-row center">
 
-            <a class="btn btn-red"
-               href="https://www.zeffy.com/en-US/ticketing/poe-dreams-of-madness-by-allyssa-hynes-pioneer-drama-services"
-               target="_blank"
-               rel="noopener noreferrer">
-              Purchase Poe Tickets
-            </a>
-
-          </div>
+          <a class="btn btn-red"
+             href="https://www.zeffy.com/en-US/ticketing/poe-dreams-of-madness-by-allyssa-hynes-pioneer-drama-services"
+             target="_blank"
+             rel="noopener noreferrer">
+            Purchase Poe Tickets
+          </a>
 
         </div>
 
@@ -1250,7 +1579,7 @@ p {
 
       <!-- UPCOMING PRODUCTIONS -->
 
-      <div class="section-small">
+      <div class="event" id="shows-upcoming">
 
         <div class="section-heading">
 
@@ -1272,14 +1601,10 @@ p {
 
             <h3>A.C.T. in Four</h3>
 
-            <p>
-              A One-Act Showcase
-            </p>
+            <p>A One-Act Showcase</p>
 
             <p>
-              More details are coming soon
-              as we prepare another opportunity
-              to celebrate live storytelling.
+              More information coming soon.
             </p>
 
           </div>
@@ -1290,19 +1615,16 @@ p {
               March 2027 · Dates TBA
             </div>
 
-            <h3>Shakespeare Teen Production</h3>
+            <h3>Teen Shakespeare Production</h3>
 
             <p>
-              Shakespeare is getting
-              an Italian Mafia makeover!
+              Shakespeare gets
+              an Italian Mafia makeover.
             </p>
 
-            <p>
-              Our spring teen production
-              brings a fresh twist to
-              a theatrical tradition.
-              Stay tuned for the announcement.
-            </p>
+            <a class="btn" href="#teen">
+              Teen Theatre
+            </a>
 
           </div>
 
@@ -1312,7 +1634,7 @@ p {
 
       <!-- AUDITIONS -->
 
-      <div class="section-small" id="shows-auditions">
+      <div class="event" id="shows-auditions">
 
         <div class="section-heading">
 
@@ -1320,26 +1642,23 @@ p {
             Step Into the Spotlight
           </div>
 
-          <h2>Teen Auditions</h2>
+          <h2>Teen Shakespeare Auditions</h2>
 
           <p>
-            After the incredible response to
-            last year's <em>A Midsummer Night's Dream</em>,
-            Shakespeare Weekend is here to stay!
+            Shakespeare Weekend returns
+            with an Italian Mafia twist!
           </p>
 
         </div>
 
         <div class="panel">
 
-          <h3>
-            Shakespeare, With an Italian Mafia Twist
-          </h3>
+          <h3>Welcome to the Family.</h3>
 
           <p>
             We're looking for teens ages
-            <strong>13–19</strong> who are ready
-            to join the "Family."
+            <strong>13–19</strong>
+            who are ready to join the production.
           </p>
 
           <div class="schedule">
@@ -1369,16 +1688,19 @@ p {
           <p>
             <strong>Come prepared:</strong>
             Bring a 1–3 minute monologue
-            and a printed copy for ACT's records.
+            and a printed copy
+            for ACT's records.
           </p>
 
           <p class="gold">
-            Auditions held at ACT Theatre,
-            1435 W Oaklawn Rd, Pleasanton, TX.
+            ACT Theatre<br>
+            1435 W Oaklawn Rd<br>
+            Pleasanton, TX 78064
           </p>
 
-          <a class="btn"
-             href="mailto:act.theatre.tx@gmail.com?subject=Teen%20Shakespeare%20Auditions">
+          <a class="btn btn-red"
+             href="#contact"
+             data-topic="Teen Shakespeare Auditions">
             Ask About Auditions
           </a>
 
@@ -1390,9 +1712,9 @@ p {
 
   </div>
 
-  <!-- BEYOND THE STAGE -->
+  <!-- MASQUERADE FULL DETAILS -->
 
-  <div class="section" style="background:#1c1115">
+  <div class="section masque-feature" id="shows-masque">
 
     <div class="container">
 
@@ -1404,109 +1726,104 @@ p {
 
         <h2>Special Events & Fundraisers</h2>
 
-        <p>
-          Theatre is about bringing people together,
-          and some of our favorite gatherings
-          happen beyond the stage.
-        </p>
-
       </div>
 
-      <article class="event" id="shows-masque">
+      <div class="split poster-split">
 
-        <div class="split poster-split">
+        <div class="poster">
 
-          <div class="poster">
+          <img
+            src="masque-of-hidden-hearts.jpg"
+            alt="Masque of Hidden Hearts official poster">
 
-            <img
-              src="masque-of-hidden-hearts.jpg"
-              alt="Masque of Hidden Hearts tragic love masquerade ball poster">
+        </div>
 
+        <div>
+
+          <div class="eyebrow">
+            February 13, 2027
           </div>
 
-          <div>
+          <h2>The Masque of Hidden Hearts</h2>
 
-            <div class="event-label">
-              February 13, 2027 · Fundraiser
-            </div>
+          <h3 class="gold">
+            A Tragic Love Masquerade Ball
+          </h3>
 
-            <h2>
-              The Masque of Hidden Hearts
-            </h2>
+          <p>
+            Some love stories are written
+            in the stars. Others are
+            whispered behind a mask.
+          </p>
 
-            <h3 class="gold">
-              A Tragic Love Masquerade Ball
-            </h3>
+          <p>
+            Step into an evening of
+            old-world elegance,
+            romance, and mystery
+            as Atascosa County Troupe
+            invites you to a masquerade
+            where every guest
+            has a story to tell.
+          </p>
 
-            <p>
-              Some love stories are written
-              in the stars. Others are
-              whispered behind a mask.
-            </p>
+          <p>
+            Enjoy dinner, dancing,
+            drinks, a silent auction,
+            and an unforgettable evening
+            in support of community theatre.
+          </p>
 
-            <p>
-              Step into an evening of old-world
-              elegance, romance, and mystery
-              as Atascosa County Troupe
-              invites you to a masquerade
-              where every guest has
-              a story to tell.
-            </p>
+          <p>
+            Behind every production
+            are countless hours
+            of dedication and creativity.
+            Your attendance helps ACT
+            continue bringing theatre
+            to our community.
+          </p>
 
-            <p>
-              Enjoy dinner, dancing, drinks,
-              a silent auction, and an
-              unforgettable evening
-              in support of community theatre.
-            </p>
+          <p>
+            <strong>
+              Saturday, February 13, 2027
+            </strong>
+          </p>
 
-            <p>
-              Behind every production are
-              countless hours of dedication,
-              creativity, and work.
-              Your attendance helps ACT
-              continue bringing theatre
-              to our community.
-            </p>
+          <p>
+            <strong>Coughran Hall</strong><br>
+            4858 Coughran Rd<br>
+            Pleasanton, TX 78064
+          </p>
 
-            <p>
-              <strong>
-                Saturday, February 13, 2027
-              </strong>
-            </p>
+          <p class="gold">
+            Ages 18+
+          </p>
 
-            <p>
-              Coughran Hall<br>
-              4858 Coughran Rd<br>
-              Pleasanton, TX 78064
-            </p>
+          <p class="muted">
+            Alcoholic beverages available
+            only to guests 21 and older
+            with valid identification.
+          </p>
 
-            <p class="gold">
-              Adults Only · Ages 18+
-            </p>
+          <div class="button-row">
 
-            <p class="muted">
-              Alcoholic beverages available
-              only to guests 21 and older
-              with valid identification.
-            </p>
+            <a class="btn btn-red"
+               href="https://www.zeffy.com/en-US/ticketing/a-masquerade-of-hidden-hearts"
+               target="_blank"
+               rel="noopener noreferrer">
+              Masquerade Tickets
+            </a>
 
-            <div class="button-row">
-
-              <a class="btn btn-red"
-                 href="https://www.zeffy.com/en-US/ticketing/a-masquerade-of-hidden-hearts"
-                 target="_blank"
-                 rel="noopener noreferrer">
-                Masquerade Tickets
-              </a>
-
-            </div>
+            <a class="btn"
+               href="#contact"
+               data-topic="Masquerade Fundraiser">
+              Ask About the Event
+            </a>
 
           </div>
 
         </div>
 
-      </article>
+      </div>
 
     </div>
 
@@ -1514,9 +1831,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      BEHIND THE CURTAIN
-================================ -->
+========================================== -->
 
 <section class="page" id="behind">
 
@@ -1529,68 +1846,71 @@ p {
     <h1>Behind the Curtain</h1>
 
     <p>
-      Every performance begins long before
-      the house lights dim.
+      Every performance begins
+      long before the house lights dim.
     </p>
 
   </div>
 
   <div class="section">
 
-    <div class="container">
+    <div class="container split">
 
-      <div class="split">
+      <div>
 
-        <div>
+        <h2>
+          More Than What You See on Stage.
+        </h2>
 
-          <h2>More Than What You See on Stage.</h2>
+        <p>
+          Before the applause,
+          there are rehearsals.
+          Before the curtain rises,
+          there are sets to build,
+          costumes to prepare,
+          lights to focus,
+          and stories to shape.
+        </p>
 
-          <p>
-            Before the applause, there are rehearsals.
-            Before the curtain rises, there are
-            sets to build, costumes to prepare,
-            lights to focus, and stories to shape.
-          </p>
+        <p>
+          Behind every ACT production
+          is a community of performers,
+          directors, technicians,
+          artists, and volunteers.
+        </p>
 
-          <p>
-            Behind every ACT production is a
-            community of performers, directors,
-            technicians, artists, and volunteers
-            giving their time and talent
-            to something bigger than themselves.
-          </p>
+        <p>
+          This is where we'll share
+          the process, personalities,
+          hard work, and unforgettable
+          moments that happen
+          behind the scenes.
+        </p>
 
-          <p>
-            This is where we'll share the process,
-            the personalities, the hard work,
-            and the unforgettable moments
-            that happen behind the scenes.
-          </p>
+      </div>
 
+      <div class="panel">
+
+        <div class="eyebrow">
+          Coming Soon
         </div>
 
-        <div class="panel">
+        <h3>A Look Behind the Magic</h3>
 
-          <div class="eyebrow">
-            Coming Soon
-          </div>
+        <p>
+          Rehearsal stories,
+          production photographs,
+          costume details,
+          set construction,
+          cast highlights,
+          and the people who make
+          ACT Theatre possible.
+        </p>
 
-          <h3>A Look Behind the Magic</h3>
-
-          <p>
-            Rehearsal stories, production
-            photographs, costume details,
-            set construction, cast highlights,
-            and the people who make
-            ACT Theatre possible.
-          </p>
-
-          <p class="gold">
-            The best stories don't always
-            happen beneath the spotlight.
-          </p>
-
-        </div>
+        <p class="gold">
+          The best stories don't always
+          happen beneath the spotlight.
+        </p>
 
       </div>
 
@@ -1600,9 +1920,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      YOUTH THEATRE
-================================ -->
+========================================== -->
 
 <section class="page" id="youth">
 
@@ -1628,14 +1948,16 @@ p {
 
       <div class="section-heading">
 
-        <h2>Every Young Performer Has a Story.</h2>
+        <h2>
+          Every Young Performer Has a Story.
+        </h2>
 
         <p>
-          ACT's youth programming gives
-          young people opportunities to
-          explore performance, creativity,
-          collaboration, and responsibility
-          in a supportive theatrical environment.
+          ACT's youth programming
+          gives young people opportunities
+          to explore performance,
+          creativity, collaboration,
+          and responsibility.
         </p>
 
       </div>
@@ -1651,16 +1973,10 @@ p {
           <h3>Ages 6–18</h3>
 
           <p>
-            Our summer program welcomes
-            young performers ages 6 through 18,
-            including graduating high school seniors.
-          </p>
-
-          <p>
-            Discover the excitement of
-            creating theatre together,
-            building confidence, and
-            bringing stories to life.
+            Including graduating
+            high school seniors.
+            Discover the excitement
+            of creating theatre together.
           </p>
 
           <a class="btn" href="#summer">
@@ -1678,16 +1994,11 @@ p {
           <h3>Ages 13–19</h3>
 
           <p>
-            Our spring teen production
-            offers older students the chance
-            to explore more challenging
+            Explore more challenging
             characters, storytelling,
             and ensemble work.
-          </p>
-
-          <p>
             This season, Shakespeare
-            gets an Italian Mafia makeover.
+            gets an Italian Mafia twist.
           </p>
 
           <a class="btn" href="#teen">
@@ -1706,18 +2017,16 @@ p {
 
           <p>
             Theatre offers opportunities
-            to learn teamwork, communication,
-            creative problem-solving,
-            technical skills, and leadership.
-          </p>
-
-          <p>
-            Not every role is onstage,
-            and every contribution matters.
+            to learn teamwork,
+            communication, creative
+            problem-solving,
+            technical skills,
+            and leadership.
           </p>
 
           <a class="btn"
-             href="mailto:act.theatre.tx@gmail.com?subject=Youth%20Theatre">
+             href="#contact"
+             data-topic="Youth Theatre">
             Ask a Question
           </a>
 
@@ -1744,7 +2053,8 @@ p {
     <h1>Summer Youth Theatre</h1>
 
     <p>
-      Ages 6–18, including graduating seniors.
+      Ages 6–18,
+      including graduating seniors.
     </p>
 
   </div>
@@ -1758,29 +2068,30 @@ p {
         <h2>A Summer Full of Stories.</h2>
 
         <p>
-          There's something special about
-          watching young performers discover
-          what they can accomplish together.
+          There's something special
+          about watching young performers
+          discover what they can
+          accomplish together.
         </p>
 
         <p>
-          Our summer youth theatre program
-          offers an opportunity to explore
-          acting, storytelling, teamwork,
-          and the many elements that
-          bring a production to life.
+          Our summer program offers
+          opportunities to explore
+          acting, storytelling,
+          teamwork, and the many elements
+          that bring a production to life.
         </p>
 
         <p>
-          Details for the next summer season,
-          including dates and registration
-          information, will be announced
-          when available.
+          Details for the next season,
+          including dates and registration,
+          will be announced when available.
         </p>
 
         <a class="btn btn-red"
-           href="mailto:act.theatre.tx@gmail.com?subject=Summer%20Youth%20Theatre">
-          Contact ACT
+           href="#contact"
+           data-topic="Summer Youth Theatre">
+          Ask About Summer Theatre
         </a>
 
       </div>
@@ -1791,7 +2102,7 @@ p {
 
 </section>
 
-<!-- SPRING TEEN -->
+<!-- TEEN -->
 
 <section class="page" id="teen">
 
@@ -1811,70 +2122,71 @@ p {
 
   <div class="section">
 
-    <div class="container">
+    <div class="container split">
 
-      <div class="split">
+      <div>
 
-        <div>
+        <h2>Welcome to the Family.</h2>
 
-          <h2>Welcome to the Family.</h2>
+        <p>
+          After the incredible response
+          to last year's
+          <em>A Midsummer Night's Dream</em>,
+          Shakespeare Weekend returns!
+        </p>
 
-          <p>
-            After the incredible response
-            to last year's
-            <em>A Midsummer Night's Dream</em>,
-            Shakespeare Weekend returns!
-          </p>
+        <p>
+          This year, we're giving
+          Shakespeare an Italian Mafia
+          makeover, bringing a fresh
+          theatrical flavor to
+          a classic tradition.
+        </p>
 
-          <p>
-            This year, we're giving
-            Shakespeare an Italian Mafia
-            makeover, bringing a fresh
-            theatrical flavor to
-            a classic tradition.
-          </p>
+        <p>
+          We're looking for teens
+          ages 13–19 ready to explore
+          memorable characters
+          and dramatic storytelling.
+        </p>
 
-          <p>
-            We're looking for teens ages
-            13–19 ready to explore
-            memorable characters,
-            dramatic storytelling,
-            and the thrill of live theatre.
-          </p>
+        <a class="btn btn-red"
+           href="#shows-auditions">
+          Audition Information
+        </a>
 
-          <a class="btn btn-red"
-             href="#shows-auditions">
-            Audition Information
-          </a>
+      </div>
 
+      <div class="panel">
+
+        <div class="eyebrow">
+          Audition Weekends
         </div>
 
-        <div class="panel">
+        <h3>December 5–6 & 12–13</h3>
 
-          <div class="eyebrow">
-            Audition Weekends
-          </div>
+        <p>
+          Saturdays at 7:00 PM<br>
+          Sundays at 4:00 PM
+        </p>
 
-          <h3>December 5–6 & 12–13</h3>
+        <p>
+          Prepare a 1–3 minute monologue
+          and bring a printed copy
+          for ACT's records.
+        </p>
 
-          <p>
-            Saturdays at 7:00 PM<br>
-            Sundays at 4:00 PM
-          </p>
+        <p class="gold">
+          ACT Theatre<br>
+          1435 W Oaklawn Rd<br>
+          Pleasanton, TX 78064
+        </p>
 
-          <p>
-            Prepare a 1–3 minute monologue
-            and bring a printed copy
-            for ACT's records.
-          </p>
-
-          <p class="gold">
-            ACT Theatre<br>
-            1435 W Oaklawn Rd<br>
-            Pleasanton, TX 78064
-          </p>
-
-        </div>
+        <a class="btn"
+           href="#contact"
+           data-topic="Teen Shakespeare Auditions">
+          Ask a Question
+        </a>
 
       </div>
 
@@ -1884,9 +2196,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      HISTORY
-================================ -->
+========================================== -->
 
 <section class="page" id="history">
 
@@ -1908,10 +2220,11 @@ p {
 
     <div class="container">
 
-      <div class="panel" style="max-width:900px;margin:auto">
+      <div class="panel"
+           style="max-width:900px;margin:auto">
 
         <div class="eyebrow">
-          A History Worth Telling · Coming Soon
+          A History Worth Telling
         </div>
 
         <h2>Every Stage Has a Story.</h2>
@@ -1940,20 +2253,21 @@ p {
         </p>
 
         <p>
-          We want to introduce you to
-          our founding members, revisit
-          our earliest productions,
+          We want to introduce you
+          to our founding members,
+          revisit our earliest productions,
           celebrate the people who helped
-          shape this theatre, and explore
-          how ACT has grown and changed
-          through the decades.
+          shape this theatre,
+          and explore how ACT has grown
+          and changed through the decades.
         </p>
 
         <p>
           Not just names and dates,
           but the stories behind them.
-          The funny moments, meaningful
-          milestones, familiar faces,
+          The funny moments,
+          meaningful milestones,
+          familiar faces,
           and memories worth preserving.
         </p>
 
@@ -1965,11 +2279,9 @@ p {
         </p>
 
         <p>
-          <strong>
-            Have an old ACT program,
-            photograph, or memory
-            tucked away somewhere?
-          </strong>
+          Have an old ACT program,
+          photograph, or memory
+          tucked away somewhere?
         </p>
 
         <p>
@@ -1977,15 +2289,248 @@ p {
         </p>
 
         <a class="btn btn-red"
-           href="mailto:act.theatre.tx@gmail.com?subject=ACT%20History%20and%20Memories">
+           href="#memory-form">
           Share Your ACT Memories
         </a>
 
-        <p class="muted" style="margin-top:25px">
-          Stay tuned. We're gathering
-          the pieces of a story
-          more than fifty years in the making.
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MEMORY SUBMISSION -->
+
+  <div class="section section-dark"
+       id="memory-form">
+
+    <div class="container form-section">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          The Community Archives
+        </div>
+
+        <h2>Were You Part of ACT's Story?</h2>
+
+        <p>
+          Did you perform on our stage,
+          work behind the curtain,
+          attend a memorable production,
+          or know someone who helped
+          build ACT in its early days?
         </p>
+
+        <p>
+          Tell us your story.
+          No memory is too small.
+        </p>
+
+      </div>
+
+      <div class="form-card">
+
+        <!--
+          FormSubmit sends this form to ACT's email.
+          The first submission requires email activation.
+
+          Photo attachments use regular form submission
+          rather than the AJAX handler.
+        -->
+
+        <form
+          action="https://formsubmit.co/act.theatre.tx@gmail.com"
+          method="POST"
+          enctype="multipart/form-data">
+
+          <input type="hidden"
+                 name="_subject"
+                 value="ACT Through the Years - New Memory">
+
+          <input type="hidden"
+                 name="_template"
+                 value="table">
+
+          <input type="hidden"
+                 name="_captcha"
+                 value="true">
+
+          <input type="text"
+                 name="_honey"
+                 style="display:none"
+                 tabindex="-1"
+                 autocomplete="off">
+
+          <div class="form-grid">
+
+            <div class="form-field">
+
+              <label for="memory-name">
+                Your Name *
+              </label>
+
+              <input
+                id="memory-name"
+                name="Contributor Name"
+                required
+                maxlength="120"
+                placeholder="Your name">
+
+            </div>
+
+            <div class="form-field">
+
+              <label for="memory-email">
+                Your Email *
+              </label>
+
+              <input
+                id="memory-email"
+                name="email"
+                type="email"
+                required
+                maxlength="200"
+                placeholder="you@example.com">
+
+            </div>
+
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-field">
+
+              <label for="memory-year">
+                Approximate Year
+              </label>
+
+              <input
+                id="memory-year"
+                name="Approximate Year"
+                placeholder="1987, early 2000s, etc.">
+
+            </div>
+
+            <div class="form-field">
+
+              <label for="memory-production">
+                Production or Connection
+              </label>
+
+              <input
+                id="memory-production"
+                name="Production or Connection"
+                placeholder="Show, volunteer role, etc.">
+
+            </div>
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="memory-story">
+              Tell Us Your Story *
+            </label>
+
+            <textarea
+              id="memory-story"
+              name="ACT Memory"
+              required
+              maxlength="12000"
+              placeholder="Tell us about your memories of ACT..."></textarea>
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="memory-photo">
+              Share a Photograph or Program
+            </label>
+
+            <input
+              id="memory-photo"
+              type="file"
+              name="attachment"
+              accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf">
+
+            <p class="form-note">
+              Optional. Attach one photograph,
+              scanned program, or document.
+              Please keep files under 10 MB.
+              File delivery depends on the
+              form service's attachment support.
+            </p>
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="memory-permission">
+              May We Share Your Story?
+            </label>
+
+            <select
+              id="memory-permission"
+              name="Publication Permission"
+              required>
+
+              <option value="">
+                Please choose
+              </option>
+
+              <option value="Yes, with my name">
+                Yes, with my name
+              </option>
+
+              <option value="Yes, anonymously">
+                Yes, but anonymously
+              </option>
+
+              <option value="Please contact me first">
+                Please contact me first
+              </option>
+
+              <option value="Private submission only">
+                No, keep my submission private
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="checkline">
+
+            <input
+              type="checkbox"
+              id="memory-rights"
+              name="Rights Confirmation"
+              value="Confirmed"
+              required>
+
+            <label for="memory-rights">
+              I confirm this is my story
+              or that I have permission
+              to share the submitted material.
+              I understand ACT will review
+              submissions before any publication.
+            </label>
+
+          </div>
+
+          <button
+            class="btn btn-red"
+            type="submit">
+            Submit Your ACT Memory
+          </button>
+
+          <p class="form-note">
+            Your submission goes to ACT for review.
+            Nothing is automatically published
+            to the website.
+          </p>
+
+        </form>
 
       </div>
 
@@ -1995,9 +2540,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      GALLERY
-================================ -->
+========================================== -->
 
 <section class="page" id="gallery">
 
@@ -2050,7 +2595,7 @@ p {
 
           <img
             src="act-event-schedule.png"
-            alt="ACT Theatre upcoming event schedule">
+            alt="ACT upcoming event schedule">
 
           <figcaption>
             Upcoming at ACT · 2026–2027
@@ -2060,7 +2605,7 @@ p {
 
       </div>
 
-      <div class="section-small center">
+      <div class="section center">
 
         <h2>Our Photo Album Is Growing.</h2>
 
@@ -2071,13 +2616,13 @@ p {
         </p>
 
         <p>
-          Have photos from ACT's past
-          or present you'd like to contribute?
+          Have photographs from ACT's
+          past or present?
         </p>
 
-        <a class="btn"
-           href="mailto:act.theatre.tx@gmail.com?subject=ACT%20Gallery%20Photos">
-          Share a Photo
+        <a class="btn btn-red"
+           href="#memory-form">
+          Share a Photo or Memory
         </a>
 
       </div>
@@ -2088,9 +2633,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      GET INVOLVED
-================================ -->
+========================================== -->
 
 <section class="page" id="involved">
 
@@ -2126,8 +2671,7 @@ p {
             Audition for a production,
             explore a new character,
             and discover the excitement
-            of bringing stories to life
-            with an ensemble.
+            of live storytelling.
           </p>
 
           <a class="btn" href="#shows-auditions">
@@ -2143,15 +2687,16 @@ p {
           <h3>Create</h3>
 
           <p>
-            Help with costumes, props,
-            sets, lighting, sound,
-            stage management, and
-            the wonderful work
+            Help with costumes,
+            props, sets, lighting,
+            sound, stage management,
+            and the wonderful work
             behind the curtain.
           </p>
 
           <a class="btn"
-             href="mailto:act.theatre.tx@gmail.com?subject=ACT%20Volunteer">
+             href="#contact"
+             data-topic="Volunteering">
             Volunteer
           </a>
 
@@ -2167,12 +2712,12 @@ p {
             Attend a performance,
             sponsor a production,
             contribute an auction item,
-            or help introduce someone
-            new to community theatre.
+            or support ACT's programs.
           </p>
 
           <a class="btn"
-             href="mailto:act.theatre.tx@gmail.com?subject=ACT%20Sponsorship">
+             href="#contact"
+             data-topic="Sponsorship or Donation">
             Support ACT
           </a>
 
@@ -2187,9 +2732,10 @@ p {
           <h2>Let's Make Something Together.</h2>
 
           <p>
-            ACT is built by the people
-            who lend their time, talent,
-            ideas, and enthusiasm.
+            ACT is built by people
+            who lend their time,
+            talent, ideas,
+            and enthusiasm.
           </p>
 
           <p>
@@ -2200,7 +2746,8 @@ p {
           </p>
 
           <a class="btn btn-red"
-             href="mailto:act.theatre.tx@gmail.com?subject=Getting%20Involved%20with%20ACT">
+             href="#contact"
+             data-topic="Getting Involved">
             Get in Touch
           </a>
 
@@ -2209,7 +2756,7 @@ p {
         <div class="panel">
 
           <div class="eyebrow">
-            Businesses & Community Partners
+            Community Partners
           </div>
 
           <h3>Help Keep the Curtain Rising.</h3>
@@ -2227,8 +2774,10 @@ p {
             ways to work together.
           </p>
 
-          <a href="mailto:act.theatre.tx@gmail.com">
-            act.theatre.tx@gmail.com
+          <a class="btn"
+             href="#contact"
+             data-topic="Business Partnership">
+            Become a Community Partner
           </a>
 
         </div>
@@ -2241,9 +2790,9 @@ p {
 
 </section>
 
-<!-- ===============================
+<!-- ==========================================
      ABOUT ACT
-================================ -->
+========================================== -->
 
 <section class="page" id="about">
 
@@ -2264,157 +2813,146 @@ p {
 
   <div class="section">
 
+    <div class="container split">
+
+      <div>
+
+        <h2>Stories Bring Us Together.</h2>
+
+        <p>
+          Atascosa County Troupe,
+          known to friends and neighbors
+          as ACT Theatre,
+          is a nonprofit community theatre
+          serving Pleasanton and
+          the surrounding area.
+        </p>
+
+        <p>
+          Since 1974, ACT has offered
+          a home for live storytelling,
+          creativity, collaboration,
+          and community connection.
+        </p>
+
+        <p>
+          We believe theatre belongs
+          to everyone: performers,
+          volunteers, families,
+          first-time audience members,
+          and longtime supporters alike.
+        </p>
+
+        <a class="btn" href="#history">
+          Explore Our History
+        </a>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="eyebrow">
+          A Note from the Wings
+        </div>
+
+        <h3>From the Wings</h3>
+
+        <p>
+          A monthly note from ACT's
+          leadership is coming soon.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="eyebrow">
+          Stay in the Know
+        </div>
+
+        <h3>ACT Newsletter</h3>
+
+        <p>
+          We're preparing a newsletter
+          with show announcements,
+          auditions, special events,
+          and news from behind the curtain.
+        </p>
+
+        <p class="muted">
+          Newsletter sign-up coming soon.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section section-dark">
+
     <div class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Find Us
+        </div>
+
+        <h2>Come See Us.</h2>
+
+      </div>
 
       <div class="split">
 
-        <div>
+        <div class="panel">
 
-          <h2>Stories Bring Us Together.</h2>
+          <h3>ACT Theatre</h3>
 
           <p>
-            Atascosa County Troupe,
-            known to friends and neighbors
-            as ACT Theatre, is a nonprofit
-            community theatre serving
-            Pleasanton and the surrounding area.
+            1435 W Oaklawn Rd<br>
+            Pleasanton, TX 78064
           </p>
 
           <p>
-            Since 1974, ACT has offered
-            a home for live storytelling,
-            creativity, collaboration,
-            and community connection.
+            <a href="tel:+18305801045">
+              830-580-1045
+            </a>
           </p>
 
           <p>
-            We believe theatre belongs
-            to everyone: performers,
-            volunteers, families,
-            first-time audience members,
-            and longtime supporters alike.
+            <a href="mailto:act.theatre.tx@gmail.com">
+              act.theatre.tx@gmail.com
+            </a>
           </p>
 
-          <p>
-            Our productions and programs
-            are made possible by
-            the dedication of people
-            who believe local theatre matters.
-          </p>
-
-          <a class="btn" href="#history">
-            Explore Our History
+          <a class="btn"
+             href="https://www.google.com/maps/search/?api=1&query=1435+W+Oaklawn+Rd+Pleasanton+TX+78064"
+             target="_blank"
+             rel="noopener noreferrer">
+            Get Directions
           </a>
 
         </div>
 
         <div class="panel">
 
-          <div class="eyebrow">
-            A Note from the Wings
-          </div>
-
-          <h3>From the Wings</h3>
+          <h3>Have a Question?</h3>
 
           <p>
-            A monthly note from ACT's
-            leadership is coming soon.
+            Want to audition,
+            volunteer, share a memory,
+            ask about a production,
+            or simply say hello?
           </p>
 
           <p>
-            Look for reflections on our
-            productions, the people
-            behind them, and the stories
-            we're excited to share next.
+            Send your question directly
+            through our website.
           </p>
 
-          <div class="divider"></div>
-
-          <div class="eyebrow">
-            Stay in the Know
-          </div>
-
-          <h3>ACT Newsletter</h3>
-
-          <p>
-            We're preparing a newsletter
-            with show announcements,
-            auditions, special events,
-            and news from behind the curtain.
-          </p>
-
-          <p class="muted">
-            Newsletter sign-up coming soon.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="section-small">
-
-        <div class="section-heading">
-
-          <div class="eyebrow">Find Us</div>
-
-          <h2>Come See Us.</h2>
-
-        </div>
-
-        <div class="split">
-
-          <div class="panel">
-
-            <h3>ACT Theatre</h3>
-
-            <p>
-              1435 W Oaklawn Rd<br>
-              Pleasanton, TX 78064
-            </p>
-
-            <p>
-              <a href="tel:+18305801045">
-                830-580-1045
-              </a>
-            </p>
-
-            <p>
-              <a href="mailto:act.theatre.tx@gmail.com">
-                act.theatre.tx@gmail.com
-              </a>
-            </p>
-
-            <a class="btn"
-               href="https://www.google.com/maps/search/?api=1&query=1435+W+Oaklawn+Rd+Pleasanton+TX+78064"
-               target="_blank"
-               rel="noopener noreferrer">
-              Get Directions
-            </a>
-
-          </div>
-
-          <div class="panel">
-
-            <h3>Have a Question?</h3>
-
-            <p>
-              Want to audition, volunteer,
-              share a historical photograph,
-              ask about a production,
-              or simply say hello?
-            </p>
-
-            <p>
-              We're always glad to hear
-              from our community.
-            </p>
-
-            <a class="btn btn-red"
-               href="mailto:act.theatre.tx@gmail.com?subject=Hello%20ACT%20Theatre">
-              Email ACT Theatre
-            </a>
-
-          </div>
+          <a class="btn btn-red"
+             href="#contact">
+            Contact ACT
+          </a>
 
         </div>
 
@@ -2426,11 +2964,261 @@ p {
 
 </section>
 
+<!-- ==========================================
+     CONTACT FORM
+========================================== -->
+
+<section class="page" id="contact">
+
+  <div class="inner-hero">
+
+    <div class="eyebrow">
+      We'd Love to Hear From You
+    </div>
+
+    <h1>Contact ACT</h1>
+
+    <p>
+      Questions, ideas, auditions,
+      volunteering, sponsorships,
+      or just a friendly hello.
+    </p>
+
+  </div>
+
+  <div class="section">
+
+    <div class="container form-section">
+
+      <div class="section-heading">
+
+        <h2>Send Us a Message.</h2>
+
+        <p>
+          Complete the form below
+          and your message will be
+          sent directly to ACT Theatre.
+        </p>
+
+      </div>
+
+      <div class="form-card">
+
+        <form
+          id="contactForm"
+          action="https://formsubmit.co/ajax/act.theatre.tx@gmail.com"
+          method="POST">
+
+          <input type="hidden"
+                 name="_subject"
+                 value="New ACT Theatre Website Inquiry">
+
+          <input type="hidden"
+                 name="_captcha"
+                 value="true">
+
+          <input type="text"
+                 name="_honey"
+                 style="display:none"
+                 tabindex="-1"
+                 autocomplete="off">
+
+          <div class="form-grid">
+
+            <div class="form-field">
+
+              <label for="contact-name">
+                Your Name *
+              </label>
+
+              <input
+                id="contact-name"
+                name="Name"
+                required
+                maxlength="120"
+                autocomplete="name"
+                placeholder="Full name">
+
+            </div>
+
+            <div class="form-field">
+
+              <label for="contact-email">
+                Email Address *
+              </label>
+
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                required
+                maxlength="200"
+                autocomplete="email"
+                placeholder="you@example.com">
+
+            </div>
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="contact-topic">
+              What Can We Help You With? *
+            </label>
+
+            <select
+              id="contact-topic"
+              name="Inquiry Type"
+              required>
+
+              <option value="">
+                Choose a topic
+              </option>
+
+              <option value="General Question">
+                General Question
+              </option>
+
+              <option value="Teen Shakespeare Auditions">
+                Teen Shakespeare Auditions
+              </option>
+
+              <option value="Other Auditions">
+                Other Auditions
+              </option>
+
+              <option value="Youth Theatre">
+                Youth Theatre
+              </option>
+
+              <option value="Summer Youth Theatre">
+                Summer Youth Theatre
+              </option>
+
+              <option value="Volunteering">
+                Volunteering
+              </option>
+
+              <option value="Getting Involved">
+                Getting Involved
+              </option>
+
+              <option value="Sponsorship or Donation">
+                Sponsorship or Donation
+              </option>
+
+              <option value="Business Partnership">
+                Business Partnership
+              </option>
+
+              <option value="Masquerade Fundraiser">
+                Masquerade Fundraiser
+              </option>
+
+              <option value="Ticket Question">
+                Ticket Question
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="contact-phone">
+              Phone Number (Optional)
+            </label>
+
+            <input
+              id="contact-phone"
+              type="tel"
+              name="Phone"
+              autocomplete="tel"
+              maxlength="30"
+              placeholder="Your phone number">
+
+          </div>
+
+          <div class="form-field">
+
+            <label for="contact-message">
+              Your Message *
+            </label>
+
+            <textarea
+              id="contact-message"
+              name="Message"
+              required
+              maxlength="10000"
+              placeholder="Tell us what you'd like to know..."></textarea>
+
+          </div>
+
+          <button
+            class="btn btn-red"
+            type="submit">
+            Send Message to ACT
+          </button>
+
+          <div
+            id="contactStatus"
+            class="form-status"
+            role="status"
+            aria-live="polite">
+          </div>
+
+          <p class="form-note">
+            Your information will be used
+            to respond to your inquiry.
+            Please don't include sensitive
+            personal or financial information.
+          </p>
+
+        </form>
+
+      </div>
+
+      <div class="center"
+           style="margin-top:35px">
+
+        <p>
+          Prefer to contact us directly?
+        </p>
+
+        <p class="gold">
+          act.theatre.tx@gmail.com
+        </p>
+
+        <button
+          class="btn"
+          type="button"
+          id="copyEmail">
+          Copy ACT's Email Address
+        </button>
+
+        <p id="copyEmailStatus"
+           class="muted"
+           aria-live="polite"
+           style="margin-top:12px">
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 </main>
 
-<!-- ===============================
+<!-- ==========================================
      FOOTER
-================================ -->
+========================================== -->
 
 <footer class="footer">
 
@@ -2460,11 +3248,29 @@ p {
 
         <div class="footer-links">
 
-          <a href="#shows">Shows & Events</a>
-          <a href="#youth">Youth Theatre</a>
-          <a href="#history">ACT Through the Years</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#involved">Get Involved</a>
+          <a href="#shows">
+            Shows & Events
+          </a>
+
+          <a href="#youth">
+            Youth Theatre
+          </a>
+
+          <a href="#history">
+            ACT Through the Years
+          </a>
+
+          <a href="#gallery">
+            Gallery
+          </a>
+
+          <a href="#involved">
+            Get Involved
+          </a>
+
+          <a href="#contact">
+            Contact ACT
+          </a>
 
         </div>
 
@@ -2498,7 +3304,7 @@ p {
     <div class="copyright">
 
       © <span id="year"></span>
-      Atascosa County Troupe (ACT Theatre).
+      Atascosa County Troupe.
       All rights reserved.
 
       <br>
@@ -2511,9 +3317,9 @@ p {
 
 </footer>
 
-<!-- ===============================
-     WEBSITE NAVIGATION SCRIPT
-================================ -->
+<!-- ==========================================
+     NAVIGATION + FORMS
+========================================== -->
 
 <script>
 
@@ -2522,20 +3328,39 @@ p {
   "use strict";
 
   const pages = document.querySelectorAll(".page");
+
   const nav = document.getElementById("mainNav");
+
   const toggle = document.getElementById("menuToggle");
+
+  const pageAliases = {
+    "shows-poe": "shows",
+    "shows-upcoming": "shows",
+    "shows-auditions": "shows",
+    "shows-masque": "shows",
+    "memory-form": "history"
+  };
+
+  function closeMenu() {
+
+    nav.classList.remove("open");
+
+    toggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    toggle.textContent = "☰ Menu";
+
+  }
 
   function navigate() {
 
     const hash = decodeURIComponent(
-      window.location.hash.substring(1) || "home"
+      window.location.hash.slice(1) || "home"
     );
 
-    let pageId = hash;
-
-    if (hash.startsWith("shows-")) {
-      pageId = "shows";
-    }
+    let pageId = pageAliases[hash] || hash;
 
     const pageExists = Array.from(pages).some(
       page => page.id === pageId
@@ -2559,45 +3384,94 @@ p {
       const target = link.getAttribute("href");
 
       if (target === "#" + pageId) {
-        link.setAttribute("aria-current", "page");
+
+        link.setAttribute(
+          "aria-current",
+          "page"
+        );
+
       } else {
-        link.removeAttribute("aria-current");
+
+        link.removeAttribute(
+          "aria-current"
+        );
+
       }
 
     });
 
-    nav.classList.remove("open");
-
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.textContent = "☰ Menu";
+    closeMenu();
 
     requestAnimationFrame(() => {
 
-      if (hash !== pageId) {
+      const target = document.getElementById(hash);
 
-        const target = document.getElementById(hash);
+      if (target && hash !== pageId) {
 
-        if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
 
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
+      } else {
 
-          return;
-
-        }
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
 
       }
-
-      window.scrollTo({
-        top: 0,
-        behavior: "instant"
-      });
 
     });
 
   }
+
+  /*
+    All internal links use the same navigation
+    system, including links to sections
+    within the current page.
+  */
+
+  document.addEventListener("click", function (event) {
+
+    const link = event.target.closest('a[href^="#"]');
+
+    if (!link) return;
+
+    const destination = link.getAttribute("href");
+
+    if (!destination || destination === "#") return;
+
+    const topic = link.dataset.topic;
+
+    if (topic) {
+
+      const topicSelect =
+        document.getElementById("contact-topic");
+
+      if (topicSelect) {
+
+        const exists = Array.from(
+          topicSelect.options
+        ).some(option => option.value === topic);
+
+        topicSelect.value = exists
+          ? topic
+          : "General Question";
+
+      }
+
+    }
+
+    if (window.location.hash === destination) {
+
+      event.preventDefault();
+
+      navigate();
+
+    }
+
+  });
 
   toggle.addEventListener("click", function () {
 
@@ -2614,23 +3488,134 @@ p {
 
   });
 
-  window.addEventListener("hashchange", navigate);
+  window.addEventListener(
+    "hashchange",
+    navigate
+  );
 
   document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
-
-      nav.classList.remove("open");
-
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "☰ Menu";
-
+      closeMenu();
     }
 
   });
 
   document.getElementById("year").textContent =
     new Date().getFullYear();
+
+  /*
+    CONTACT FORM
+
+    Uses FormSubmit AJAX.
+
+    ACT must activate the receiving email
+    after the first test submission.
+  */
+
+  const contactForm =
+    document.getElementById("contactForm");
+
+  const contactStatus =
+    document.getElementById("contactStatus");
+
+  contactForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+      if (!contactForm.reportValidity()) return;
+
+      const button =
+        contactForm.querySelector('button[type="submit"]');
+
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      contactStatus.className = "form-status";
+      contactStatus.textContent = "";
+
+      try {
+
+        const data = new FormData(contactForm);
+
+        const response = await fetch(
+          contactForm.action,
+          {
+            method: "POST",
+            body: data,
+            headers: {
+              "Accept": "application/json"
+            }
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || result.success === "false" || result.success === false) {
+          throw new Error(
+            result.message || "Submission was not accepted."
+          );
+        }
+
+        contactStatus.className =
+          "form-status form-success";
+
+        contactStatus.textContent =
+          "Thank you! Your message was submitted. If ACT's form email is not yet activated, ACT must confirm the activation email before delivery begins.";
+
+        contactForm.reset();
+
+      } catch (error) {
+
+        contactStatus.className =
+          "form-status form-error";
+
+        contactStatus.textContent =
+          "We couldn't confirm your submission. Please try again, or contact ACT directly at act.theatre.tx@gmail.com.";
+
+      } finally {
+
+        button.disabled = false;
+        button.textContent = originalText;
+
+      }
+
+    }
+  );
+
+  /*
+    COPY EMAIL BUTTON
+  */
+
+  const copyButton =
+    document.getElementById("copyEmail");
+
+  const copyStatus =
+    document.getElementById("copyEmailStatus");
+
+  copyButton.addEventListener("click", async function () {
+
+    const email = "act.theatre.tx@gmail.com";
+
+    try {
+
+      await navigator.clipboard.writeText(email);
+
+      copyStatus.textContent =
+        "Email address copied!";
+
+    } catch (error) {
+
+      copyStatus.textContent =
+        "Please copy: " + email;
+
+    }
+
+  });
 
   navigate();
 
