@@ -1291,7 +1291,89 @@ p {
     </div>
 
   </div>
+<!-- ACT THEATRE: AFTER HOURS NEWSLETTER -->
 
+<section class="section section-dark" id="newsletter">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        A Letter From Behind the Curtain
+      </div>
+
+      <h2>ACT Theatre: After Hours</h2>
+
+      <p class="gold"
+         style="font-family:'Cormorant Garamond',serif;
+                font-size:29px;
+                font-style:italic;">
+
+        When the curtain falls,
+        the stories continue.
+
+      </p>
+
+      <p>
+        The official monthly newsletter
+        of Atascosa County Troupe.
+      </p>
+
+      <p>
+        Step behind the curtain for
+        upcoming productions, auditions,
+        youth theatre news, backstage stories,
+        special events, and a few secrets
+        from the wings.
+      </p>
+
+    </div>
+
+    <div class="panel"
+         style="max-width:750px;
+                margin:auto;">
+
+      <div>
+        <div data-zeffy-embed
+             data-form-url="/en-US/embed/newsletter-form/sign-up-for-our-newsletter-4613">
+        </div>
+
+        <div data-zeffy-embed-fallback
+             style="display:none;">
+
+          <div style="position:relative;
+                      overflow:hidden;
+                      height:280px;
+                      width:100%;">
+
+            <iframe
+              title="ACT Theatre Newsletter Signup"
+              style="position:absolute;
+                     border:0;
+                     top:0;
+                     left:0;
+                     width:100%;
+                     height:100%;"
+              data-zeffy-embed-src="https://www.zeffy.com/en-US/embed/newsletter-form/sign-up-for-our-newsletter-4613"
+              allowTransparency="true">
+            </iframe>
+
+          </div>
+
+        </div>
+
+        <script
+          src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
+          onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
+        </script>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   <!-- COMMUNITY -->
 
   <div class="section section-dark">
@@ -1354,15 +1436,15 @@ p {
         <h3>Stay in the Know</h3>
 
         <p>
-          Our newsletter is coming soon,
-          with production announcements,
-          auditions, events, and news
-          from behind the scenes.
+          Subscribe to ACT Theatre: After Hours for
+          production announcements, auditions,
+          special events, and stories from behind
+          the curtain.
         </p>
 
-        <p class="muted">
-          Newsletter sign-up coming soon.
-        </p>
+        <a class="btn" href="#newsletter">
+          Subscribe to ACT Theatre: After Hours
+        </a>
 
       </div>
 
@@ -2871,15 +2953,15 @@ p {
         <h3>ACT Newsletter</h3>
 
         <p>
-          We're preparing a newsletter
+          We now have a newsletter
           with show announcements,
           auditions, special events,
           and news from behind the curtain.
         </p>
 
-        <p class="muted">
-          Newsletter sign-up coming soon.
-        </p>
+        <a class="btn btn-red" href="#newsletter">
+          Join ACT Theatre: After Hours
+        </a>
 
       </div>
 
@@ -3333,12 +3415,13 @@ p {
 
   const toggle = document.getElementById("menuToggle");
 
-  const pageAliases = {
-    "shows-poe": "shows",
-    "shows-upcoming": "shows",
-    "shows-auditions": "shows",
-    "shows-masque": "shows",
-    "memory-form": "history"
+ const pageAliases = {
+  "shows-poe": "shows",
+  "shows-upcoming": "shows",
+  "shows-auditions": "shows",
+  "shows-masque": "shows",
+  "memory-form": "history",
+  "newsletter": "home"
   };
 
   function closeMenu() {
